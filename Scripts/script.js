@@ -83,6 +83,8 @@ $('.tree-directions').on('click', function() {
 
 // code for modal window containing specific people
 $('#tree-container').on('click', '.node text', function() {
+  $('.person-wrapper').empty();
+  $('.person-wrapper').append('<div class="text-wrapper"></div>');
   var nodeText = $(this).text();
   peopleList.forEach(function(current, index) {
     if (current.name == nodeText) {
