@@ -258,7 +258,7 @@ treeJSON = d3.json("/Data/familyTree.json", function(error, treeData) {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 70; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -310,6 +310,17 @@ console.log(links)
             .style("fill", "white")
             .on('mouseover', toggleChildren);
 
+        //Trying to add a spouse underneath
+        nodeEnter.append("text")
+        .attr("text-anchor", function(d) {
+            return d.children || d._children ? "end" : "start";
+        })
+          .attr("transform", function(d) {
+              return d.children || d._children ? "translate(-10,20)" : "translate(10,20)";
+        })
+          .text(function(d) {
+              return d.spouse.name;
+          });
         // phantom node to give us mouseover in a radius around it
         nodeEnter.append("circle")
             .attr('class', 'ghostCircle')

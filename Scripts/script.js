@@ -89,6 +89,7 @@ $('#tree-container').on('click', '.node text', function() {
       currentPerson = current;
     }
   });
+  console.log(currentPerson);
   $('.person-wrapper').prepend('<img class="person-picture" src="' + currentPerson.picture + '">');
   $('.text-wrapper').append('<p class="person-name">' + currentPerson.name +'</p>');
   $('.text-wrapper').append('<p class="person-dob"> Born: </p><p>' + currentPerson.dob + '</p>');
@@ -99,9 +100,13 @@ $('#tree-container').on('click', '.node text', function() {
     $('.text-wrapper').append('<p class="person-spouse"> Married to: </p><p>' + currentPerson.spouse.name + 'on ' + currentPerson.spouse.married + '</p>');
   }
   $('.text-wrapper').append('<p class="person-description">' + currentPerson.description + '</p>');
-  $('.person-displayer').show();
-  $('#tree-container').hide();
+  if (currentPerson.name == nodeText) {
+    $('.person-displayer').show();
+    $('#tree-container').hide();
+  } else {
+  }
 });
+
 $('.person-displayer').on('click', function () {
   $('.person-displayer').hide();
   $('.person-picture').remove();
