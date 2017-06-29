@@ -119,10 +119,8 @@ header li a:hover {
 .slideshow div:first-of-type {
 }
 .slideshow div:nth-of-type(2) {
-  background: #cf6766;
 }
 .slideshow div:nth-of-type(3) {
-  background: #30415d;
 }
 .button-container {
   width: 100%;
