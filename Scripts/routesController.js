@@ -9,4 +9,7 @@ controller.section = function(ctx, next) {
   $('section').hide();
   $('header').css('margin-top', '-75px');
   $('.' + clickedSection).show();
+  if (clickedSection == "tree") {
+    window.scrollTo(0, 720);
+  }
 }

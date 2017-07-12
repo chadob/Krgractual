@@ -14,7 +14,9 @@ var currentPersonInfo = {
   spouse: '',
   life: '',
   married: ''
-}
+};
+var windowTreeX;
+var windowTreeY;
 
 //Get all albums and books
 $.get('/album', function(data) {
@@ -103,17 +105,24 @@ $('#tree-container').on('click', '.node text', function() {
   }
   $('.text-wrapper').append('<p class="person-description">' + currentPerson.description + '</p>');
   if (currentPerson.name == nodeText) {
+    windowTreeY = $('body').scrollTop();
+    windowTreeX = $('body').scrollLeft();
+    console.log(windowTreeX);
     $('.person-displayer').show();
+    $('.tree').css('width', '100vw');
+    window.scrollTo(0, 0);
     $('#tree-container').hide();
   } else {
   }
 });
 
 $('.person-displayer').on('click', function () {
+  $('.tree').css('width', '2300px');
   $('.person-displayer').hide();
   $('.person-picture').remove();
   $('.text-wrapper').empty();
   $('#tree-container').show();
+  window.scrollTo(windowTreeX,windowTreeY);
 });
 
 $('.person-displayer-exit').on('click', function() {
@@ -121,6 +130,8 @@ $('.person-displayer-exit').on('click', function() {
   $('.person-picture').remove();
   $('.text-wrapper').empty();
   $('#tree-container').show();
+  console.log(windowTreeX)
+  window.scrollTo(windowTreeX,windowTreeY);
 });
 
 //code for album events
@@ -350,6 +361,7 @@ $( document ).on( 'keydown', function ( e ) {
         $('.person-picture').remove();
         $('.text-wrapper').empty();
         $('#tree-container').show();
+        window.scrollTo(windowTreeX,windowTreeY);
       }
     }
 });
@@ -392,19 +404,21 @@ $('.email-attachment').on('change', function(e) {
 
 (function () {
   if( navigator.userAgent.indexOf("Chrome") != -1 ) {
-  $('.email-attachment-cover').css('left', 'calc(50% - 147px)');
+  $('.email-attachment-cover').css('left', 'calc(50% - 143px)');
   $('.email-attachment-cover').css('top', '503px');
-  $('.person-email-attachment-cover').css('left', 'calc(50% - 147px)');
+  $('.person-email-attachment-cover').css('left', 'calc(50% - 143px)');
   $('.person-email-attachment-cover').css('top', '1188px');
 } else if( navigator.userAgent.indexOf("MSIE") != -1 ) {
-  $('.email-attachment-cover').css('left', 'calc(50% - 147px)');
+  $('.email-attachment-cover').css('left', 'calc(50% - 132px)');
+  $('.email-attachment-cover').css('width', '254px');
   $('.email-attachment-cover').css('top', '503px');
-  $('.person-email-attachment-cover').css('left', 'calc(50% - 147px)');
+  $('.person-email-attachment-cover').css('left', 'calc(50% - 132px)');
+  $('.person-email-attachment-cover').css('width', '254px');
   $('.person-email-attachment-cover').css('top', '1188px');
 } else if( navigator.userAgent.indexOf("Firefox") != -1 ) {
-  $('.email-attachment-cover').css('left', 'calc(50% - 157px)');
+  $('.email-attachment-cover').css('left', 'calc(50% - 154px)');
   $('.email-attachment-cover').css('top', '523px');
-  $('.person-email-attachment-cover').css('left', 'calc(50% - 156px)');
+  $('.person-email-attachment-cover').css('left', 'calc(50% - 154px)');
   $('.person-email-attachment-cover').css('top', '1230px');
 } else {
   return "unknown";

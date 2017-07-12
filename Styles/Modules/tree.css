@@ -1,4 +1,7 @@
 /*Now the CSS*/
+#tree-container {
+  width: 2200px;
+}
 .directions-text {
   left: 17px;
   top: 82px;
@@ -101,14 +104,14 @@
   position: absolute;
   display: none;
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: calc(100vh - 75px);
   z-index: 101;
   top: 0px;
 }
 .person-wrapper {
   width: 100%;
-  height: calc(100vh - 75px);
+  min-height: calc(100vh - 75px);
   top: 0px;
   left: 0;
   right: 0;
@@ -117,7 +120,7 @@
 }
 .person-background {
   width: 100%;
-  height: calc(100vh - 75px);
+  height: 100%;
   background: black;
   opacity: .9;
   position: absolute;
@@ -127,10 +130,12 @@
   width: calc(50% - 100px);
   margin-left: 50px;
   margin-right: 50px;
+  margin-top: 75px;
   position: relative;
   z-index: 2;
   display: inline-block;
   /*vertical-align: middle;*/
+  float: left;
 }
 .person-displayer p {
   color: white;

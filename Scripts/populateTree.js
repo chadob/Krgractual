@@ -19,7 +19,7 @@ treeJSON = d3.json("/Data/familyTree.json", function(error, treeData) {
     var viewerHeight = $(window).height() - 78;
 
     var tree = d3.layout.tree()
-        .size([viewerHeight, viewerWidth]);
+        .size([2000, 2300]);
     // define a d3 diagonal projection for use by the node paths later on.
     var diagonal = d3.svg.diagonal()
         .projection(function(d) {
@@ -143,8 +143,8 @@ treeJSON = d3.json("/Data/familyTree.json", function(error, treeData) {
 
     // define the baseSvg, attaching a class for styling and the zoomListener
     var baseSvg = d3.select("#tree-container").append("svg")
-        .attr("width", viewerWidth)
-        .attr("height", viewerHeight)
+        .attr("width", 2300)
+        .attr("height", 2100)
         .attr("class", "overlay")
         .call(zoomListener);
 
@@ -209,8 +209,8 @@ treeJSON = d3.json("/Data/familyTree.json", function(error, treeData) {
         scale = zoomListener.scale();
         x = -source.y0;
         y = -source.x0;
-        x = 225;
-        y = y * scale + viewerHeight / 2;
+        x = 275;
+        y = y * scale + 1050;
         d3.select('g').transition()
             .duration(duration)
             .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
@@ -259,7 +259,7 @@ treeJSON = d3.json("/Data/familyTree.json", function(error, treeData) {
         };
         childCount(0, root);
         var newHeight = d3.max(levelWidth) * 70; // 25 pixels per line
-        tree = tree.size([newHeight, viewerWidth]);
+        tree = tree.size([2000, newHeight]);
 
         // Compute the new tree layout.
         var nodes = tree.nodes(root).reverse(),
@@ -320,7 +320,8 @@ console.log(links)
         })
           .text(function(d) {
               return d.spouse.name;
-          });
+          })
+          .style("fill", "white");
         // phantom node to give us mouseover in a radius around it
         nodeEnter.append("circle")
             .attr('class', 'ghostCircle')
