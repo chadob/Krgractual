@@ -126,6 +126,7 @@ $('.person-displayer').on('click', function () {
 });
 
 $('.person-displayer-exit').on('click', function() {
+  $('.tree').css('width', '2300px');
   $('.person-displayer').hide();
   $('.person-picture').remove();
   $('.text-wrapper').empty();
@@ -357,6 +358,7 @@ $( document ).on( 'keydown', function ( e ) {
         }, 1000);
         $('.album-cover-wrapper').show();
       } else {
+        $('.tree').css('width', '2300px');
         $('.person-displayer').hide();
         $('.person-picture').remove();
         $('.text-wrapper').empty();
