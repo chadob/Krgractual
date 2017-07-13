@@ -429,6 +429,7 @@ $('.email-attachment').on('change', function(e) {
   $('.email-attachment-cover').css('top', '500px');
   $('.person-email-attachment-cover').css('left', 'calc(50% - 180px)');
   $('.person-email-attachment-cover').css('top', '1192px');
+  $('input[type=text], textarea').css({width: '40%'});
 } else {
   return "unknown";
 }
