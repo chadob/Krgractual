@@ -422,6 +422,13 @@ $('.email-attachment').on('change', function(e) {
   $('.email-attachment-cover').css('top', '523px');
   $('.person-email-attachment-cover').css('left', 'calc(50% - 154px)');
   $('.person-email-attachment-cover').css('top', '1230px');
+} else if( navigator.userAgent.indexOf("Safari") != -1 ) {
+  $('.share-story').css('margin-left', 'calc(50% - 275px)');
+  $('.button-container').css('padding-top', '150px');
+  $('.email-attachment-cover').css('left', 'calc(50% - 180px)');
+  $('.email-attachment-cover').css('top', '500px');
+  $('.person-email-attachment-cover').css('left', 'calc(50% - 180px)');
+  $('.person-email-attachment-cover').css('top', '1192px');
 } else {
   return "unknown";
 }
