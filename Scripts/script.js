@@ -422,6 +422,7 @@ $('.email-attachment').on('change', function(e) {
   $('.email-attachment-cover').css('top', '523px');
   $('.person-email-attachment-cover').css('left', 'calc(50% - 154px)');
   $('.person-email-attachment-cover').css('top', '1230px');
+  $('input[type=text], textarea').css({width: '40%'});
 } else if( navigator.userAgent.indexOf("Safari") != -1 ) {
   $('.share-story').css('margin-left', 'calc(50% - 275px)');
   $('.button-container').css('padding-top', '150px');
